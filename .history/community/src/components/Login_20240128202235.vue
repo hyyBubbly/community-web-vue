@@ -106,14 +106,14 @@
             roleId:'2',
             role:'医生',
           },
-          {
-            roleId:'3',
-            role:'员工',
-          },
-		  {
-            roleId:'4',
-            role:'监护人',
-          },
+        //   {
+        //     roleId:'3',
+        //     role:'员工',
+        //   },
+		//   {
+        //     roleId:'4',
+        //     role:'监护人',
+        //   },
           {
             roleId:'5',
             role:'普通用户',

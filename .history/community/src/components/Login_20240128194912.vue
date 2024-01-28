@@ -171,7 +171,8 @@
 			// this.addForm.roleId = "4"
 		    // const {data:res} = await this.$http.post("/User/insertUser",this.addForm);
 			this.addForm.roleId = "5"
-		    const {data:res} = await this.$http.post("/Common/insertCommon",this.addForm);
+			console.log(this.addForm)
+		    const {data:res} = await this.$http.post("/Common/insertUser",this.addForm);
 		    if(res!=="success"){
 		      return this.$message.error("注册失败！！！");
 		    }

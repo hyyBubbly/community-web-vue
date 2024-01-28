@@ -168,10 +168,8 @@
 		addUser(){
 		  this.$refs.addFormRef.validate(async valid =>{
 		    if(!valid) return;
-			// this.addForm.roleId = "4"
-		    // const {data:res} = await this.$http.post("/User/insertUser",this.addForm);
-			this.addForm.roleId = "5"
-		    const {data:res} = await this.$http.post("/Common/insertCommon",this.addForm);
+			this.addForm.roleId = "4"
+		    const {data:res} = await this.$http.post("/User/insertUser",this.addForm);
 		    if(res!=="success"){
 		      return this.$message.error("注册失败！！！");
 		    }
@@ -181,8 +179,7 @@
 
 		},
 			async selectAddress(){
-			//   const {data:res} = await this.$http.get("/User/address");
-			  const {data:res} = await this.$http.get("/Common/address");
+			  const {data:res} = await this.$http.get("/User/address");
 			  this.communities = res;
 			},
 			editClosed(){
