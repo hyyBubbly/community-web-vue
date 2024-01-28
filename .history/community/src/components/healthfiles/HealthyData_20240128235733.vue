@@ -1,27 +1,31 @@
 <template>
-  <div>
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>健康数据检测</el-breadcrumb-item>
-    </el-breadcrumb>
-    <el-card style="height: 100%">
-      <el-row>
-        <el-col style="width: 50%;height: 300px;">
-          <!-- <label>老人姓名：</label> -->
-          <!-- <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList" clearable filterable
-            style="width: 50%; padding-right: 10px">
-            <el-option v-for="item in olderDrop" :key="item.olderId" :label="item.olderName" :value="item.olderId">
-            </el-option>
-          </el-select> -->
-          <el-image :src="img" style="height: 300px;width: 400px;margin-top: 20px"></el-image>
-        </el-col>
-        <el-col id="drawLine" style="width: 50%;height: 400px;"></el-col>
-      </el-row>
-      <el-row style="margin-top: 100px;">
-        <el-col id="line" style="width: 50%;height: 400px;"></el-col>
-        <el-col id="id" style="width: 50%;height: 400px;"></el-col>
-      </el-row>
-    </el-card>
+	<div>
+	  <el-breadcrumb separator-class="el-icon-arrow-right">
+	    <el-breadcrumb-item :to="{path:'/home'}">首页</el-breadcrumb-item>
+	    <el-breadcrumb-item>健康数据检测</el-breadcrumb-item>
+	  </el-breadcrumb>
+  <el-card style="height: 100%">
+    <el-row>
+      <el-col style="width: 50%;height: 300px;">
+        <!-- <label>老人姓名：</label> -->
+        <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList"
+                   clearable filterable style="width: 50%; padding-right: 10px">
+          <el-option
+              v-for="item in olderDrop"
+              :key="item.olderId"
+              :label="item.olderName"
+              :value="item.olderId">
+          </el-option>
+        </el-select>
+        <el-image :src="img" style="height: 300px;width: 400px;margin-top: 20px"></el-image>
+      </el-col>
+      <el-col id="drawLine" style="width: 50%;height: 400px;"></el-col>
+    </el-row>
+    <el-row style="margin-top: 100px;">
+      <el-col id="line" style="width: 50%;height: 400px;"></el-col>
+      <el-col id="id" style="width: 50%;height: 400px;"></el-col>
+    </el-row>
+  </el-card>
   </div>
 </template>
 <script>
@@ -32,11 +36,10 @@ export default {
     return {
       queryInfo: {
         orderId: "",
-        userId: ""
       },
       olderDrop: [{
-        orderId: "",
-        orderName: ""
+        orderId:"",
+        orderName:""
       }],
       internalList: [{
         heartRate: "",
@@ -50,21 +53,20 @@ export default {
         urinalysis: "",
         CDultrasound: "",
         physician: "",
-        photo: ""
+        photo:""
       }],
       dataX: [],
       dataY: [],
       dataHeightY: [],
       dataLowY: [],
-      dataFatY: [],
-      dataSugarY: [],
-      img: "",
-      token: ""
+      dataFatY:[],
+      dataSugarY:[],
+      img:"",
+      token:""
     }
   },
   created() {
-    // this.selectOlderDrop();
-    this.getInternalList();
+    this.selectOlderDrop();
   },
   methods: {
     //获取内科信息
@@ -73,14 +75,7 @@ export default {
       this.dataY = [];
       this.dataHeightY = [];
       this.dataLowY = [];
-      this.token = window.sessionStorage.getItem("roleId")
-      if (this.token === '4') {
-        this.queryInfo.userId = window.sessionStorage.getItem("id")
-      } else {
-        this.queryInfo.userId = ''
-      }
-      // 用本人id去查健康信息
-      const { data: res } = await this.$http.get("/healthy/internalList?olderId=" + this.queryInfo.userId)
+      const {data: res} = await this.$http.get("/healthy/internalList?olderId=" + this.queryInfo.olderId)
       this.internalList = res;
       this.img = require('@/' + this.internalList[0].photo)
       for (let i = 0; i < this.internalList.length; i++) {
@@ -97,9 +92,9 @@ export default {
     },
     async selectOlderDrop() {
       this.token = window.sessionStorage.getItem("roleId")
-      if (this.token === '4') {
+      if(this.token === '4'){
         this.queryInfo.userId = window.sessionStorage.getItem("id")
-      } else {
+      }else{
         this.queryInfo.userId = ''
       }
       const {data: res} = await this.$http.get("/healthy/olderDrop?userId=" + this.queryInfo.userId);
@@ -122,7 +117,7 @@ export default {
         },
         tooltip: {},
         legend: {
-          data: ['血糖', '血脂']
+          data: ['血糖','血脂']
         },
         xAxis: {
           boundaryGap: false,
@@ -135,37 +130,37 @@ export default {
         visualMap: [{
           show: false,
           dimension: 1,
-          seriesIndex: 0,
-          pieces: [{ gte: 4.1, lte: 6.1, color: '#2a5caa' }],
+          seriesIndex:0,
+          pieces: [{gte: 4.1, lte: 6.1, color: '#2a5caa'}],
           outOfRange: {
             color: 'red'
           }
-        },
-        {
-          show: false,
-          dimension: 1,
-          seriesIndex: 1,
-          pieces: [{ gte: 2.6, lte: 3.9, color: '#7fb80e' }],
-          outOfRange: {
-            color: 'red'
+          },
+          {
+            show: false,
+            dimension: 1,
+            seriesIndex:1,
+            pieces: [{gte: 2.6, lte: 3.9, color: '#7fb80e'}],
+            outOfRange: {
+              color: 'red'
+            }
           }
-        }
-        ],
+          ],
         series: [{
           name: '血糖',
           type: 'line',
           data: this.dataSugarY,
         },
-        {
-          name: '血脂',
-          type: 'line',
-          data: this.dataFatY,
-        }
+          {
+            name: '血脂',
+            type: 'line',
+            data: this.dataFatY,
+          }
         ]
       };
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option, true);
-      window.onresize = function () {
+      window.onresize = function(){
         myChart.resize()
       }
     },
@@ -190,8 +185,8 @@ export default {
             dataZoom: {
               yAxisIndex: 'none'
             },
-            dataView: { readOnly: false },
-            magicType: { type: ['line', 'bar'] },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
             restore: {},
             saveAsImage: {}
           }
@@ -213,12 +208,12 @@ export default {
             data: this.dataHeightY,
             markPoint: {
               data: [
-                { type: 'max', name: 'Max' },
-                { type: 'min', name: 'Min' }
+                {type: 'max', name: 'Max'},
+                {type: 'min', name: 'Min'}
               ]
             },
             markLine: {
-              data: [{ type: 'average', name: 'Avg' }]
+              data: [{type: 'average', name: 'Avg'}]
             },
             itemStyle: {
               color: "#f47920"
@@ -230,12 +225,12 @@ export default {
             data: this.dataLowY,
             markPoint: {
               data: [
-                { type: 'max', name: 'Max' },
-                { type: 'min', name: 'Min' }]
+                {type: 'max', name: 'Max'},
+                {type: 'min', name: 'Min'}]
             },
             markLine: {
               data: [
-                { type: 'average', name: 'Avg' },
+                {type: 'average', name: 'Avg'},
                 [
                   {
                     symbol: 'none',
@@ -262,7 +257,7 @@ export default {
       };
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option);
-      window.onresize = function () {
+      window.onresize = function(){
         myChart.resize()
       }
     },
@@ -295,7 +290,7 @@ export default {
         visualMap: {
           show: false,
           dimension: 1,
-          pieces: [{ gte: 70, lte: 150, color: 'green' }],
+          pieces: [{gte: 70, lte: 150, color: 'green'}],
           outOfRange: {
             color: 'red'
           }
@@ -304,12 +299,12 @@ export default {
           name: '心率',
           type: 'line',
           data: this.dataY,
-          smooth: true,
-          markArea: {
-            itemStyle: {
-              color: 'rgba(255, 173, 177, 0.4)'
+          smooth:true,
+          markArea:{
+            itemStyle:{
+              color:'rgba(255, 173, 177, 0.4)'
             },
-            data: [
+            data:[
               [
                 {
                   name: '正常范围',
@@ -327,7 +322,7 @@ export default {
       };
       // 使用刚指定的配置项和数据显示图表。
       myChart.setOption(option, true);
-      window.onresize = function () {
+      window.onresize = function(){
         myChart.resize()
       }
     },
@@ -344,19 +339,16 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.el-breadcrumb {
-  margin-bottom: 15px;
-  font-size: 17px;
+.el-breadcrumb{
+	margin-bottom: 15px;
+	font-size: 17px;
 }
-
 * {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
-.el-header,
-.el-footer {
+.el-header, .el-footer {
   background-color: #B3C0D1;
   color: #333;
   text-align: center;
@@ -377,7 +369,7 @@ export default {
   line-height: 160px;
 }
 
-body>.el-container {
+body > .el-container {
   margin-bottom: 40px;
 }
 

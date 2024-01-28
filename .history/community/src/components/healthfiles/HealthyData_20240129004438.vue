@@ -7,12 +7,12 @@
     <el-card style="height: 100%">
       <el-row>
         <el-col style="width: 50%;height: 300px;">
-          <!-- <label>老人姓名：</label> -->
-          <!-- <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList" clearable filterable
+          <label>老人姓名：</label>
+          <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList" clearable filterable
             style="width: 50%; padding-right: 10px">
             <el-option v-for="item in olderDrop" :key="item.olderId" :label="item.olderName" :value="item.olderId">
             </el-option>
-          </el-select> -->
+          </el-select>
           <el-image :src="img" style="height: 300px;width: 400px;margin-top: 20px"></el-image>
         </el-col>
         <el-col id="drawLine" style="width: 50%;height: 400px;"></el-col>
@@ -63,8 +63,8 @@ export default {
     }
   },
   created() {
-    // this.selectOlderDrop();
-    this.getInternalList();
+    this.selectOlderDrop();
+    // this.getInternalList();
   },
   methods: {
     //获取内科信息
@@ -79,7 +79,6 @@ export default {
       } else {
         this.queryInfo.userId = ''
       }
-      // 用本人id去查健康信息
       const { data: res } = await this.$http.get("/healthy/internalList?olderId=" + this.queryInfo.userId)
       this.internalList = res;
       this.img = require('@/' + this.internalList[0].photo)
@@ -102,9 +101,15 @@ export default {
       } else {
         this.queryInfo.userId = ''
       }
-      const {data: res} = await this.$http.get("/healthy/olderDrop?userId=" + this.queryInfo.userId);
-      this.olderDrop = res;
-      this.queryInfo.olderId = this.olderDrop[0].olderId
+      // const {data: res} = await this.$http.get("/healthy/olderDrop?userId=" + this.queryInfo.userId);
+      // this.olderDrop = res;
+      // this.queryInfo.olderId = this.olderDrop[0].olderId
+      this.olderDrop = [
+        {
+          "olderId": this.queryInfo.userId,
+          "olderName": "testMyself"
+        }]
+      // this.queryInfo.olderId = this.olderDrop[0].olderId
       await this.getInternalList()
     },
     drawLine() {

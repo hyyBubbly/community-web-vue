@@ -7,8 +7,8 @@
     <el-card style="height: 100%">
       <el-row>
         <el-col style="width: 50%;height: 300px;">
-          <!-- <label>老人姓名：</label> -->
-          <!-- <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList" clearable filterable
+          <!-- <label>老人姓名：</label>
+          <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @change="getInternalList" clearable filterable
             style="width: 50%; padding-right: 10px">
             <el-option v-for="item in olderDrop" :key="item.olderId" :label="item.olderName" :value="item.olderId">
             </el-option>
@@ -79,8 +79,7 @@ export default {
       } else {
         this.queryInfo.userId = ''
       }
-      // 用本人id去查健康信息
-      const { data: res } = await this.$http.get("/healthy/internalList?olderId=" + this.queryInfo.userId)
+      const { data: res } = await this.$http.get("/healthy/internalList?olderId=" + "2")
       this.internalList = res;
       this.img = require('@/' + this.internalList[0].photo)
       for (let i = 0; i < this.internalList.length; i++) {
@@ -102,8 +101,18 @@ export default {
       } else {
         this.queryInfo.userId = ''
       }
-      const {data: res} = await this.$http.get("/healthy/olderDrop?userId=" + this.queryInfo.userId);
-      this.olderDrop = res;
+      // const {data: res} = await this.$http.get("/healthy/olderDrop?userId=" + this.queryInfo.userId);
+      // this.olderDrop = res;
+      // this.queryInfo.olderId = this.olderDrop[0].olderId
+      this.olderDrop = [
+        {
+          "olderId": this.queryInfo.userId,
+          "olderName": "testMyself"
+        },
+        {
+          "olderId": 2,
+          "olderName": "testChange"
+        }]
       this.queryInfo.olderId = this.olderDrop[0].olderId
       await this.getInternalList()
     },

@@ -79,7 +79,6 @@ export default {
       } else {
         this.queryInfo.userId = ''
       }
-      // 用本人id去查健康信息
       const { data: res } = await this.$http.get("/healthy/internalList?olderId=" + this.queryInfo.userId)
       this.internalList = res;
       this.img = require('@/' + this.internalList[0].photo)
