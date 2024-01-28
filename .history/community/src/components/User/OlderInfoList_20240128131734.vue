@@ -146,7 +146,7 @@
       <!--     添加老人对话框-->
       <el-dialog title="添加老人信息" :visible.sync="insertOlder" width="60%" @close="insertClosed">
         <el-form :model="addOlderForm" :rules="addFormRules" ref="addFormRef" label-width="160px">
-          <!-- 暂时不要上传图像 -->
+          <!-- 暂时不要 -->
           <!-- <el-form-item label="照片：" prop="photo">
             <el-upload
                 class="avatar-uploader"

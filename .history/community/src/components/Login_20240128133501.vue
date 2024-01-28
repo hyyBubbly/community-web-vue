@@ -272,7 +272,7 @@
   position: absolute;
   bottom: 0%;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 </style>

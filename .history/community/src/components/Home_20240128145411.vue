@@ -26,7 +26,7 @@
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="width">
-        <el-menu background-color="#46afb9" text-color="#fff" active-text-color="#889fa0" unique-opened
+        <el-menu background-color="#46afb9" text-color="#fff" active-text-color="transparent" unique-opened
           :collapse="isCollapse" :collapse-transition="false" :router="true" :default-active="activePath">
           <div class="toggle-button" @click="toggleCollapase">|||</div>
           <!-- 一级菜单 -->
@@ -235,6 +235,7 @@ export default {
   }
 
   .el-menu-item.is-active {
+    color:transparent;
     text-shadow:0 0 5px #FFFF66,1px 1px 1px #fff,-1px -1px 1px #fff,0 0 10px #FFFF99,0 0 20px #B9EB50;
   }
 }

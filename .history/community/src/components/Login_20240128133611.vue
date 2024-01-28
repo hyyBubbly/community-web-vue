@@ -249,7 +249,7 @@
     height: 130px;
     border: 1px solid #eee;
     border-radius: 50%;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 0 2px #ddd;
     position: absolute;
     left: 50%;
@@ -272,7 +272,7 @@
   position: absolute;
   bottom: 0%;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 </style>

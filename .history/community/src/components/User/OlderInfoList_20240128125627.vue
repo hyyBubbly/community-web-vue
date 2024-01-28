@@ -146,8 +146,7 @@
       <!--     添加老人对话框-->
       <el-dialog title="添加老人信息" :visible.sync="insertOlder" width="60%" @close="insertClosed">
         <el-form :model="addOlderForm" :rules="addFormRules" ref="addFormRef" label-width="160px">
-          <!-- 暂时不要上传图像 -->
-          <!-- <el-form-item label="照片：" prop="photo">
+          <el-form-item label="照片：" prop="photo">
             <el-upload
                 class="avatar-uploader"
                 action="https://jsonplaceholder.typicode.com/posts/"
@@ -157,7 +156,7 @@
               <img v-if="imgUrl" :src="imgUrl" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
-          </el-form-item> -->
+          </el-form-item>
           <el-form-item label="老人姓名：" prop="olderName">
             <el-input v-model="addOlderForm.olderName"></el-input>
           </el-form-item>
@@ -281,6 +280,7 @@ export default {
       }
       const{data:res} = await this.$http.get("/older/list",{params:this.queryInfo})
       this.olderList = res;
+      console.log(ress)
       this.total = this.olderList[0].total;
       for (let i = 0; i < this.olderList.length; i++) {
         this.olderList[i].updateTime =

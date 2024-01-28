@@ -180,6 +180,7 @@ export default {
     },
     //保存路径
     saveNavState(activePath) {
+      console.log(1)
       window.sessionStorage.setItem('activePath', activePath);//存放在session里
       this.activePath = activePath;
     }

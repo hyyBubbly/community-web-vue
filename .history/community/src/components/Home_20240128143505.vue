@@ -26,7 +26,7 @@
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="width">
-        <el-menu background-color="#46afb9" text-color="#fff" active-text-color="#889fa0" unique-opened
+        <el-menu background-color="#46afb9" text-color="#fff" active-text-color="#00a3f4" unique-opened
           :collapse="isCollapse" :collapse-transition="false" :router="true" :default-active="activePath">
           <div class="toggle-button" @click="toggleCollapase">|||</div>
           <!-- 一级菜单 -->
@@ -229,13 +229,8 @@ export default {
     border-right: none;
   }
 
-  .el-submenu__title i,
-  .el-menu-item i {
+  .el-submenu__title i,.el-menu-item i{
     color: #ffffff;
-  }
-
-  .el-menu-item.is-active {
-    text-shadow:0 0 5px #FFFF66,1px 1px 1px #fff,-1px -1px 1px #fff,0 0 10px #FFFF99,0 0 20px #B9EB50;
   }
 }
 
@@ -267,6 +262,5 @@ img {
 
 .el-icon-arrow-down {
   font-size: 12px;
-}
-</style>
+}</style>
 

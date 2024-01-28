@@ -239,7 +239,7 @@
   height: 350px;
 //   background-color: #fff;
   background-color:rgba(0, 0, 0, 0.2);
-  border-radius: 45px;
+  border-radius: 4px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -272,7 +272,7 @@
   position: absolute;
   bottom: 0%;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 </style>

@@ -229,13 +229,8 @@ export default {
     border-right: none;
   }
 
-  .el-submenu__title i,
-  .el-menu-item i {
+  .el-submenu__title i,.el-menu-item i{
     color: #ffffff;
-  }
-
-  .el-menu-item.is-active {
-    text-shadow:0 0 5px #FFFF66,1px 1px 1px #fff,-1px -1px 1px #fff,0 0 10px #FFFF99,0 0 20px #B9EB50;
   }
 }
 
@@ -267,6 +262,5 @@ img {
 
 .el-icon-arrow-down {
   font-size: 12px;
-}
-</style>
+}</style>
 
