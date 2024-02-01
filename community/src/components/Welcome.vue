@@ -264,7 +264,7 @@ export default {
             '用户',
             '员工',
             '医生',
-            '老人',
+            // '老人',
             '管理员'
           ]
         },
@@ -295,7 +295,7 @@ export default {
             },
             data: [
               { value: this.user, name: '用户'},
-              { value: this.older, name: '老人' },
+              // { value: this.older, name: '老人' },
               { value: this.worker, name: '员工' },
               { value: this.doctor, name: '医生' },
               { value: this.admin, name: '管理员' },
