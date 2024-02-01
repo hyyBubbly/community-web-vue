@@ -106,7 +106,7 @@ export default {
         },
         {
           roleId:'4',
-          role:'监护人',
+          role:'普通用户',
         },
       ],
       communities:[],
