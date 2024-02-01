@@ -34,14 +34,14 @@
       </el-row>
       <el-table :data="healthyList" border stripe :default-sort = "{prop: 'createTime', order: 'ascending'}">
         <el-table-column label="索引" prop="id" align="center"></el-table-column><!--索引列-->
-        <el-table-column label="档案描述" prop="files" align="center">
+        <el-table-column label="名称" align="center">
           <template v-slot="scope">
             <div slot="reference" class="name-wrapper">
-              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">{{ scope.row.files }}</el-tag>
+              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">{{ scope.row.olderName }}</el-tag>
             </div>
           </template>
         </el-table-column>
-        <!-- <el-table-column label="档案描述" prop="files" align="center"></el-table-column> -->
+        <el-table-column label="档案描述" prop="files" align="center"></el-table-column>
         <el-table-column label="创建人" prop="workName" align="center"></el-table-column>
         <el-table-column label="创建时间" align="center" min-width="110px" sortable>
           <template v-slot="scope">

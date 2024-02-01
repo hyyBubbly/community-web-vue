@@ -7,7 +7,7 @@
     <el-card>
       <el-row :gutter="25">
         <el-col :span="8">
-          <!-- <label>老人姓名：</label>
+          <label>老人姓名：</label>
           <el-select placeholder="请选择老人" v-model="queryInfo.olderId" @click="getHealthyList"
                      clearable filterable style="width: 70%; padding-right: 10px">
             <el-option
@@ -16,7 +16,7 @@
                 :label="item.olderName"
                 :value="item.olderId">
             </el-option>
-          </el-select> -->
+          </el-select>
         </el-col>
         <el-col :span="8">
           <label>档案日期：</label>
@@ -34,14 +34,14 @@
       </el-row>
       <el-table :data="healthyList" border stripe :default-sort = "{prop: 'createTime', order: 'ascending'}">
         <el-table-column label="索引" prop="id" align="center"></el-table-column><!--索引列-->
-        <el-table-column label="档案描述" prop="files" align="center">
+        <el-table-column label="名称" align="center">
           <template v-slot="scope">
             <div slot="reference" class="name-wrapper">
-              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">{{ scope.row.files }}</el-tag>
+              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">{{ scope.row.olderName }}</el-tag>
             </div>
           </template>
         </el-table-column>
-        <!-- <el-table-column label="档案描述" prop="files" align="center"></el-table-column> -->
+        <el-table-column label="档案描述" prop="files" align="center"></el-table-column>
         <el-table-column label="创建人" prop="workName" align="center"></el-table-column>
         <el-table-column label="创建时间" align="center" min-width="110px" sortable>
           <template v-slot="scope">
@@ -97,7 +97,7 @@ export default {
   },
   created() {
     this.getHealthyList();
-    // this.selectOlderDrop();
+    this.selectOlderDrop();
   },
   methods:{
 

@@ -37,7 +37,7 @@
         <el-table-column label="档案描述" prop="files" align="center">
           <template v-slot="scope">
             <div slot="reference" class="name-wrapper">
-              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">{{ scope.row.files }}</el-tag>
+              <el-tag size="medium" @click="showHealthyInfo(scope.row.id)">1</el-tag>
             </div>
           </template>
         </el-table-column>

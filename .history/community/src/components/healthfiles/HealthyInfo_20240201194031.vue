@@ -56,7 +56,7 @@
                 </el-date-picker>
               </el-form-item>
               <el-form-item label="年龄:" prop = "olderAge">
-                <el-input v-model="HealthyForm.age" size="medium" clearable disabled></el-input>
+                <el-input v-model="HealthyForm.olderAge" size="medium" clearable disabled></el-input>
               </el-form-item>
               <el-form-item label="性别:" prop="sex" style="width: 32%">
                 <el-radio v-model="HealthyForm.sex" label="0" disabled>男</el-radio>
@@ -323,22 +323,19 @@ export default {
     this.changeIsDisabled();
   },
   methods:{
-    async getUserInfo(){
-      const {data:res} = await this.$http.get("/older/olderInfo?id="+ window.sessionStorage.getItem("id"));
+    async getOlderInfo(id){
+      const {data:res} = await this.$http.get("/older/olderInfo?id="+ id);
       this.HealthyForm.userId = res.userId;
       this.HealthyForm.sex = res.sex;
-      this.HealthyForm.age = res.age;
+      this.HealthyForm.olderAge = res.olderAge;
       this.HealthyForm.address = res.address + ',' + res.communityName;
       this.HealthyForm.birthday = res.birthday;
       this.HealthyForm.photo = require("@/" + res.photo);
     },
     async selectOlderDrop(){
       const{data:res} = await this.$http.get("/healthy/olderDrop");
+      this.HealthyForm.username = res.username;
       this.olderDrop = res;
-      // 找用户名字
-      this.HealthyForm.username = this.olderDrop[0].username;
-      // 找用户其他信息
-      this.getUserInfo();
     },
 
     async selectWorkDrop(){
@@ -365,7 +362,7 @@ export default {
         this.HealthyForm.height = res.height;
         this.HealthyForm.weight = res.weight;
         this.HealthyForm.birthday = res.birthday;
-        this.HealthyForm.age = res.age;
+        this.HealthyForm.olderAge = res.olderAge;
         this.HealthyForm.sex = res.sex;
         this.HealthyForm.nation = res.nation;
         this.HealthyForm.nativePlace = res.nativePlace;
