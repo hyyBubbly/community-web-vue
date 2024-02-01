@@ -226,7 +226,7 @@
         <el-button type="primary" @click="updateHealthy" v-else>保存</el-button>
       </div>
       <div style="margin-top: 15px;text-align: right" v-else>
-        <el-button type="primary" @click="Back">返回</el-button>
+        <el-button type="info" class = "blue-button" @click="Back">返回</el-button>
       </div>
 
     </el-card>
