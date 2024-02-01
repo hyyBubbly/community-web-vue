@@ -80,7 +80,7 @@ export default {
         this.queryInfo.userId = ''
       }
       // 用本人id去查健康信息
-      const { data: res } = await this.$http.get("/healthy/internalList?userId=" + this.queryInfo.userId)
+      const { data: res } = await this.$http.get("/healthy/internalList?userId=" + 2)
       this.internalList = res;
       this.img = require('@/' + this.internalList[0].photo)
       for (let i = 0; i < this.internalList.length; i++) {
