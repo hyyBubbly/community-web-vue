@@ -37,7 +37,7 @@
               <span>月售：{{item.monthlySale}} </span>
               起送 <span style="color: #ffd400">¥{{item.startDelivery}}</span>
               <span style="color: red;margin-left: 10px">{{item.delivery}}</span>
-              <span style="margin-left: 210px"> 距您{{item.distance}}km  {{item.deliveryTime}}分钟</span>
+              <span style="margin-left: 20px;"> 距您{{item.distance}}km  {{item.deliveryTime}}分钟</span>
             </el-form-item>
           </el-form>
         </el-card>

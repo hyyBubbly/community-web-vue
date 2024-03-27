@@ -98,7 +98,7 @@
           <el-input v-model="addAppointForm.hospitalName" size="medium" style="width: 70%" disabled></el-input>
         </el-form-item>
         <el-form-item label="医院的位置：" prop = "address">
-          <el-input v-model="addAppointForm.address" size="medium" style="width: 70%"></el-input>
+          <el-input v-model="addAppointForm.address" size="medium" style="width: 70%" disabled></el-input>
         </el-form-item>
         <el-form-item label="科室:" prop="departmentId">
           <el-select v-model="addAppointForm.departmentId" clearable filterable placeholder="请选择" @change="getDoctorDrop(addAppointForm.departmentId)">

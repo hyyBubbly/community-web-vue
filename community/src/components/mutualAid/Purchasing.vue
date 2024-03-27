@@ -24,7 +24,9 @@
         <el-table-column type="expand">
           <template v-slot="scope">
             <el-form label-position="center" inline class="demo-table-expand">
-              <el-form-item label="团购名单："><el-tag closable v-for="item in scope.row.tag" @close="deleteCustomer(item)">{{item.orderCustomer}}</el-tag></el-form-item>
+              <el-form-item style="margin-left: 10px;margin-bottom: 0;" label="团购名单：">
+                <el-tag closable style="margin: 0 5px;" v-for="item in scope.row.tag" @close="deleteCustomer(item)">{{item.orderCustomer}}</el-tag>
+              </el-form-item>
             </el-form>
           </template>
         </el-table-column>
@@ -148,10 +150,10 @@ export default {
       this.$message.success("删除成功！！")
     },
     async deleteCustomer(item){
-      if(window.sessionStorage.getItem("roleId") !== '4'){
+      if(window.sessionStorage.getItem("roleId") !== '4' && window.sessionStorage.getItem("roleId") !== '1'){
         return this.$message.error("权限不够，不能操作！！！")
       }
-      if(item.userId !== window.sessionStorage.getItem("id")){
+      if(item.userId !== window.sessionStorage.getItem("id") && window.sessionStorage.getItem("roleId") !== '1'){
         return this.$message.error("不能操作其他人！！！")
       }
       const confirmResult = await this.$confirm('是否确定删除？','提示',{
