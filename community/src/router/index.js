@@ -25,85 +25,85 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path:"/",
-    redirect:'/login',
+    path: "/",
+    redirect: '/login',
   },
   {
-    path:"/login",
+    path: "/login",
     component: Login,
 
   },
   {
-    path:"/home",
-    component:Home,
+    path: "/home",
+    component: Home,
     redirect: "/welcome",
-    children:[
+    children: [
       {
-        path:"/welcome",
+        path: "/welcome",
         component: Welcome,
       },
       {
-        path:"/user",
+        path: "/user",
         component: UserList,
       },
       {
-        path:"/worker",
+        path: "/worker",
         component: WorkerList,
       },
       {
-        path:"/older",
+        path: "/older",
         component: OlderInfoList,
       },
       {
-        path:"/community",
+        path: "/community",
         component: CommunityList,
       },
       {
-        path:"/healthyData",
+        path: "/healthyData",
         component: HealthyData,
       },
       {
-        path:"/files",
+        path: "/files",
         component: Healthiness,
       },
       {
-        path:"/healthyInfo",
+        path: "/healthyInfo",
         component: HealthyInfo,
       },
-	  {
-        path:"/knowledge",
-        component: Knowledge,
-	  },
       {
-        path:"/active",
+        path: "/knowledge",
+        component: Knowledge,
+      },
+      {
+        path: "/active",
         component: ActiveList,
       },
       {
-        path:"/medicine",
+        path: "/medicine",
         component: medical,
       },
       {
-        path:"/shop",
+        path: "/shop",
         component: Purchasing,
       },
       {
-        path:"/food",
+        path: "/food",
         component: repast,
       },
       {
-        path:"/pharmacy",
+        path: "/pharmacy",
         component: Pharmacy,
       },
       {
-        path:"/pharmacyInfo",
+        path: "/pharmacyInfo",
         component: PharmacyInfo,
       },
       {
-        path:"/appointment",
+        path: "/appointment",
         component: Appointment,
       },
       {
-        path:"/shoppingMall",
+        path: "/shoppingMall",
         component: ShoppingMall,
       },
       {
@@ -111,7 +111,7 @@ const routes = [
         component: foodBusiness,
       },
       {
-        path:"/personal",
+        path: "/personal",
         component: Personal,
       }
     ]
@@ -141,9 +141,9 @@ const router = new VueRouter({
 
 //出现问题时使用
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location, onResolve,onReject){
-  if(onResolve || onReject) return originalPush.call(this,location,onResolve,onReject)
-  return originalPush.call(this,location).catch(err => err)
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
 }
 
 export default router
