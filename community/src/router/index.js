@@ -11,6 +11,7 @@ import Healthiness from "@/components/healthfiles/Healthiness";
 import OlderInfoList from "@/components/User/OlderInfoList";
 import HealthyInfo from "@/components/healthfiles/HealthyInfo";
 import Knowledge from "../components/knowledge/Knowledge.vue";
+import Question from "../components/question/Question.vue"
 import ActiveList from "@/components/active/ActiveList";
 import medical from "@/components/mutualAid/medical";
 import Purchasing from "@/components/mutualAid/Purchasing";
@@ -73,6 +74,10 @@ const routes = [
       {
         path: "/knowledge",
         component: Knowledge,
+      },
+      {
+        path: "/question",
+        component: Question,
       },
       {
         path: "/active",

@@ -102,6 +102,7 @@ export default {
         '402': 'iconfont icon-gouwuche',
         '403': 'iconfont icon-canyinguanli',
         '501': 'iconfont icon-2jiankangzhishi',
+        '502': 'iconfont icon-2jiankangzhishi',
         '601': 'iconfont icon-huodong1',
       },
       activePath: "/welcome",// 默认路径
