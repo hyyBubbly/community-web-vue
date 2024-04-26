@@ -14,7 +14,7 @@
 
             <el-card class="box-card">
                 <div class="text item">
-                    {{answer}}
+                    {{ answer }}
                 </div>
             </el-card>
 
@@ -24,6 +24,7 @@
 </template>
   
 <script>
+import { Mounted } from 'vue'
 export default {
     data() {
         return {
@@ -31,6 +32,9 @@ export default {
             question: '',
             answer: ' 在人生中，健康的价值远胜过声望和财富。愿您劳逸适度，多加保重。'
         };
+    },
+    mounted() {
+        this.questionList = this.loadAll();
     },
     methods: {
         querySearch(queryString, cb) {
@@ -46,22 +50,25 @@ export default {
         },
         loadAll() {
             return [
-                { "value": "肚子疼怎么办", "address": "长宁区新渔路144号" },
-                { "value": "感冒症状有哪些", "address": "上海市长宁区淞虹路661号" },
-                { "value": "肠胃炎多久能好", "address": "上海市普陀区真北路988号创邑金沙谷6号楼113" },
-                { "value": "如何医治头疼", "address": "天山西路438号" }
+                { "value": "肚子疼怎么办" },
+                { "value": "感冒症状有哪些" },
+                { "value": "肠胃炎多久能好" },
+                { "value": "如何医治头疼" }
             ];
         },
         handleSelect(item) {
             console.log(item);
         },
-        search(){
-            // 搜索question
-            this.answer = 'test'
-        }
-    },
-    mounted() {
-        this.questionList = this.loadAll();
+        async search() {
+
+            // 问答接口python
+            const { data: res } = await this.$http.post("http://localhost:5000/kbqa", { question: this.question });
+
+            console.log(res)
+
+        },
+
+
     }
 }
 </script>
