@@ -2,9 +2,9 @@
   <!-- 引入布局 -->
   <el-container class="home-container" v-loading="loading">
     <!-- 头部 -->
-    <el-header>
+    <el-header style="height: 70px;">
       <div class="clickPop">
-        <img src="../assets/sportlogo.jpg" alt />
+        <img src="../assets/sportlogo.png" alt />
         <span class="span-font">家庭医生健康状况信息管理系统</span>
       </div>
       <el-dropdown class="clickPop">
@@ -26,7 +26,7 @@
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="width">
-        <el-menu background-color="#46afb9" text-color="#fff" active-text-color="#889fa0" unique-opened
+        <el-menu background-color="#ecf5ff" text-color="#303133" active-text-color="#889fa0" unique-opened
           :collapse="isCollapse" :collapse-transition="false" :router="true" :default-active="activePath">
           <div class="toggle-button" @click="toggleCollapase">|||</div>
           <!-- 一级菜单 -->
@@ -197,7 +197,7 @@ export default {
 //头部样式
 .el-header {
   // background-color: #373d41;
-  background-color: #4abcc6;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between; //左右贴边
@@ -210,21 +210,26 @@ export default {
   display: flex;
   align-items: center;
   cursor: pointer; //显示小手
+  padding-left: 10px;
 
   img {
     border-radius: 50%;
     margin: 5px;
+
   }
 }
 
 .span-font {
   margin-left: 10px;
-  font-family: 隶书;
+  font-size: 18px;
+  font-family: 微软雅黑;
+  color: rgb(40, 40, 40);
 }
 
 //侧边栏样式
 .el-aside {
-  background-color: #348289;
+  font-family: 微软雅黑;
+  background-color: white;
 
   .el-menu {
     border-right: none;
@@ -232,11 +237,11 @@ export default {
 
   .el-submenu__title i,
   .el-menu-item i {
-    color: #ffffff;
+    // color: #ffffff;
   }
 
   .el-menu-item.is-active {
-    text-shadow:0 0 5px #FFFF66,1px 1px 1px #fff,-1px -1px 1px #fff,0 0 10px #FFFF99,0 0 20px #B9EB50;
+    text-shadow:0 0 5px #79bbff,1px 1px 1px #fff,-1px -1px 1px #fff,0 0 10px #79bbff,0 0 20px #337ecc;
   }
 }
 
@@ -252,10 +257,10 @@ img {
 
 // |||按钮样式
 .toggle-button {
-  background-color: #399199;
+  background-color: white;
   font-size: 10px;
   line-height: 24px;
-  color: #fff;
+  color: #337ecc;
   text-align: center;
   letter-spacing: 0.2rem;
   cursor: pointer; //显示小手
@@ -263,7 +268,8 @@ img {
 
 .el-dropdown-link {
   cursor: pointer;
-  color: #fffdef;
+  color: black;
+  font-family: 微软雅黑;
 }
 
 .el-icon-arrow-down {

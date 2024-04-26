@@ -5,7 +5,7 @@
 			<div class="login_box">
 				<!-- logo头像 -->
 				<div class="avatar_box">
-					<img src="../assets/sportlogo.jpg" />
+					<img src="../assets/sportlogo.png" />
 				</div>
 				<!-- 表单区域 -->
 				<el-form ref="loginFormRef" :rules="loginRules" :model="loginForm" label-width="0" class="login_form">

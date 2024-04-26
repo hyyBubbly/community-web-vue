@@ -4,14 +4,14 @@
       <el-col :span="6">
         <el-card style="height: 102px;">
 			<el-col :span="6" style="height: 60px;padding: 0;">
-				<i class="iconfont icon-fangwenliang" style="font-size: 60px;color: #0086B3;"></i>
+				<div class="iconfont icon-yonghuliang" style="font-size: 60px;color: #0086B3;"></div>
 			</el-col>
 			<el-col :span="12" style="text-align: right;height: 55px;padding: 0;">
 				<el-row>
 					<span style="font-size: 30px; color: #0086B3;">{{userNumber}}</span>
 				</el-row>
 				<el-row>
-					<span style="font-weight: 200;font-size: 15px; font-family: 楷体;">用户数量</span>
+					<span style="font-weight: 200;font-size: 15px; font-family: 微软雅黑;">用户数量</span>
 				</el-row>
 			</el-col>
         </el-card>
@@ -19,14 +19,14 @@
       <el-col :span="6">
         <el-card style="height: 102px;">
 			<el-col :span="6" style="height: 60px;padding: 0;">
-				<i class="iconfont icon-duzheliuyan" style="font-size: 60px;color:cyan;"></i>
+				<div class="iconfont icon-xiaoxi" style="font-size: 0;"></div>
 			</el-col>
 			<el-col :span="12" style="text-align: right;height: 55px;padding: 0;">
 				<el-row>
-					<span style="font-size: 30px; color: cyan;">{{newsNumber}}</span>
+					<span style="font-size: 30px; color:#ebe89c">{{newsNumber}}</span>
 				</el-row>
 				<el-row>
-					<span style="font-weight: 200;font-size: 15px; font-family: 楷体;">系统消息</span>
+					<span style="font-weight: 200;font-size: 15px; font-family: 微软雅黑;">系统消息</span>
 				</el-row>
 			</el-col>
         </el-card>
@@ -34,14 +34,14 @@
       <el-col :span="6">
         <el-card>
 			<el-col :span="6" style="height: 80px;padding: 0;">
-				<i class="iconfont icon-xiaoqushu" style="font-size: 50px;color:#55A532;"></i>
+				<div class="iconfont icon-shequ" style="font-size: 0px;"></div>
 			</el-col>
 			<el-col :span="12" style="text-align: right;height: 55px;padding: 0;">
 				<el-row>
 					<span style="font-size: 30px; color: #55A532;">{{communityNumber}}</span>
 				</el-row>
 				<el-row>
-					<span style="font-weight: 200;font-size: 15px; font-family: 楷体;">社区数量</span>
+					<span style="font-weight: 200;font-size: 15px; font-family: 微软雅黑;">社区数量</span>
 				</el-row>
 			</el-col>
         </el-card>
@@ -49,14 +49,14 @@
       <el-col :span="6">
         <el-card>
 			<el-col :span="6" style="height: 80px;padding: 0;">
-				<i class="iconfont icon-gouwuche" style="font-size: 50px;color:#FF0000;"></i>
+				<div class="iconfont icon-dingdan" style="font-size: 50px;color:#FF0000;"></div>
 			</el-col>
 			<el-col :span="12" style="text-align: right;height: 55px;padding: 0;">
 				<el-row>
 					<span style="font-size: 30px; color: #FF0000;">{{orderNumber}}</span>
 				</el-row>
 				<el-row>
-					<span style="font-weight: 200;font-size: 15px; font-family: 楷体;">订单数量</span>
+					<span style="font-weight: 200;font-size: 15px; font-family: 微软雅黑;">订单数量</span>
 				</el-row>
 			</el-col>
         </el-card>
@@ -75,7 +75,7 @@
       <el-col :span="12">
         <el-card>
           <el-row :gutter="5">
-            <el-col :span="6" style="font-size: 30px;font-family: 楷体;">用户评价:</el-col>
+            <el-col :span="6" style="font-size: 30px;font-family: 微软雅黑;">用户评价:</el-col>
             <!-- <el-col :span="7" style="margin-top: 15px"><el-rate v-model="value" show-text></el-rate></el-col> -->
           </el-row>
           <el-row :gutter="5">
@@ -93,7 +93,7 @@
       <el-col :span="12">
         <el-card>
 			<el-row :gutter="5">
-				<el-col :span="6" style="font-size: 30px;font-family: 楷体;">留言区:</el-col>
+				<el-col :span="6" style="font-size: 30px;font-family: 微软雅黑;">留言区:</el-col>
 				<el-col :span="18" class = "marquee-wrap">
 					<ul class="marquee-list" :class="{'animate-up': animateUp}">
 					      <li v-for="(item, index) in listData" :key="index">{{item.createTime}} {{item.username}}: {{item.news}}</li>
@@ -470,6 +470,29 @@ export default {
   }
 }
 
+.iconfont {
+  width: 70px;
+  height: 70px;
+}
 
+.icon-yonghuliang {
+  background: url(../assets/yonghuliang.png);
+  background-size: 100% 100%;
+}
+
+.icon-xiaoxi {
+  background: url(../assets/xiaoxi.png);
+  background-size: 100% 100%;
+}
+
+.icon-shequ {
+  background: url(../assets/shequ.png);
+  background-size: 100% 100%;
+}
+
+.icon-dingdan {
+  background: url(../assets/dingdan.png);
+  background-size: 100% 100%;
+}
 
 </style>
